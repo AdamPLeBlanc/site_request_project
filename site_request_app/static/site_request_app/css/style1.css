@@ -3,5 +3,16 @@
     border-color: black;
     border-radius: 10px;
     border-style: solid;
-    padding: 2em;
+    padding: 1em;
+    margin: 1em;
     }
+    
+/*.row div:not(:first-child){
+    margin-left: 0;
+    padding-left: 0;
+    }*/             
+    
+.request-form{
+    margin: 1em;
+}                
+  
