@@ -1,29 +1,41 @@
 {% extends "site_request_app/base.html" %}
-
 {% block content %}
-        {% for request in sorted_request_list %}
-        <div class="container-fluid request">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h3>{{request.title}}</h3></div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-xs-offset-4">
+                <h1 class="entry-header">Site Requests</h1>
             </div>
-            <div class="row">
-              <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                <form action="{% url 'requests:vote' request.id%}" method="post">
-                {% csrf_token %}
-                  <button type="submit vote-button" class="btn btn-default" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-ok-circle glyphicon-align-left" aria-hidden="true"></span>
-                  </button>
-                </form>
-              </div>
-              <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                <h4 class="vote-label">Votes:   <span class="label label-info">{{request.votes}}</span></h4>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2">
+              <ul class="nav nav-pills nav-stacked">
+                  <li role="presentation"><a href="{% url 'requests:addrequest' %}">Add New Request</a></li>
+                  <li role="presentation"><a href="/admin">Admin Page</a></li>
+              </ul>
             </div>
-            <div class="row">
-                <div class="col-xs-12 cl-sm-12 col-md-12 col-lg-12">
-                    <p>{{request.description}}</p>
+            <div class="col-xs-8">                
+                {% for request in sorted_request_list %}
+                <div class="request">
+                  <span><h3>{{request.title}}</h3></span>
+                  <ul class="span">
+                    <li class="span">
+                        <form action="{% url 'requests:vote' request.id%}" method="post">
+                        {% csrf_token %}
+                          <button type="submit vote-button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-ok-circle glyphicon-align-left" aria-hidden="true"></span>
+                          </button>
+                        </form>
+                    </li>
+                    <li class="span">
+                        <h4 class="vote-label">Votes:   <span class="label label-info">{{request.votes}}</span></h4>
+                    </li>
+                  </ul>
+                  <span>
+                     <p>{{request.description}}</p>
+                  </span>
                 </div>
+                {% endfor %}               
+              </div>
             </div>
-        </div>
-        {% endfor %}
+          </div>
 {% endblock %}

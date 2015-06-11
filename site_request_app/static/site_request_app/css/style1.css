@@ -7,10 +7,26 @@
     margin: 1em;
     }
     
-/*.row div:not(:first-child){
+.request:first-child{
+    margin-top: 0;
+}
+    
+ul.span{
+    list-style-type:none;
+    overflow: hidden;
+    margin:1em 0;
+    padding:0;
+}   
+
+li.span{
+    display: inline;
+    float: left;
+    margin: 0 1em;
+}
+
+li.span:first-child{
     margin-left: 0;
-    padding-left: 0;
-    }*/             
+}
     
 .request-form{
     margin: 1em;

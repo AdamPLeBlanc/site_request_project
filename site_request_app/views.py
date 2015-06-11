@@ -8,8 +8,7 @@ from .models import Request
 from django.utils import timezone
 
 # Create your views here.
-
-
+    
 def index(request):
     rList = Request.objects.order_by('-votes')[:]
     template = loader.get_template('site_request_app/base_index.html')
