@@ -12,7 +12,8 @@
           <div class="form-group">
             <label for="descriptionInput">Description</label>
             <input type="text" class="form-control" name="descriptionInput" id="description-input" placeholder="description">
-          </div>
+          </div>          
+          <button type="submit" formaction="{% url 'requests:index' %}" formethod="get" class="btn btn-default">Cancel</button>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
 {% endblock %}
