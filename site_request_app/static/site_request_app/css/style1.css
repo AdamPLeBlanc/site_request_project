@@ -16,6 +16,10 @@
     height: 500px;
     width: 100%;
 }
+
+.input-form{
+    max-width: 400px;
+}
     
 header{
     width:25%;

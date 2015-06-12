@@ -3,6 +3,8 @@
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 {% block content %}
+        <div class="input-form">
+        <header><h1>Add A Request</h1></header>
         <form class="request-form" action="{% url 'requests:processaddrequest' %}" method="post">
           {% csrf_token %}
           <div class="form-group">
@@ -16,4 +18,5 @@
           <button type="submit" formaction="{% url 'requests:index' %}" formethod="get" class="btn btn-default">Cancel</button>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
+        </div>
 {% endblock %}
